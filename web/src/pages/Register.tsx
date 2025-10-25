@@ -40,88 +40,104 @@ export const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="text-center text-3xl font-extrabold text-gray-900">
-          Create your account
+    <div className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-400/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-400/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+      
+      <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
+        <div className="flex justify-center mb-6">
+          <div className="p-3 bg-white/20 backdrop-blur-lg rounded-2xl shadow-lg">
+            <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+            </svg>
+          </div>
+        </div>
+        <h2 className="text-center text-4xl font-bold text-white drop-shadow-lg">
+          Join Us Today
         </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          Or{' '}
-          <Link to="/login" className="font-medium text-primary-600 hover:text-primary-500">
-            sign in to existing account
+        <p className="mt-3 text-center text-lg text-white/90">
+          Create your account and get started
+        </p>
+        <p className="mt-2 text-center text-sm text-white/80">
+          Already have an account?{' '}
+          <Link to="/login" className="font-semibold text-white hover:text-accent-200 transition-colors underline decoration-2 underline-offset-4">
+            Sign in here
           </Link>
         </p>
       </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md relative z-10">
+        <div className="glass-card">
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block text-sm font-semibold text-white/90 mb-2">
                 Email address
               </label>
-              <div className="mt-1">
-                <input
-                  {...register('email')}
-                  id="email"
-                  type="email"
-                  autoComplete="email"
-                  className="input-field"
-                  placeholder="you@example.com"
-                />
-                {errors.email && (
-                  <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
-                )}
-              </div>
+              <input
+                {...register('email')}
+                id="email"
+                type="email"
+                autoComplete="email"
+                className="input-field"
+                placeholder="you@example.com"
+              />
+              {errors.email && (
+                <p className="mt-2 text-sm text-red-300 font-medium">{errors.email.message}</p>
+              )}
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="password" className="block text-sm font-semibold text-white/90 mb-2">
                 Password
               </label>
-              <div className="mt-1">
-                <input
-                  {...register('password')}
-                  id="password"
-                  type="password"
-                  autoComplete="new-password"
-                  className="input-field"
-                  placeholder="••••••••"
-                />
-                {errors.password && (
-                  <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>
-                )}
-              </div>
+              <input
+                {...register('password')}
+                id="password"
+                type="password"
+                autoComplete="new-password"
+                className="input-field"
+                placeholder="••••••••"
+              />
+              {errors.password && (
+                <p className="mt-2 text-sm text-red-300 font-medium">{errors.password.message}</p>
+              )}
             </div>
 
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="confirmPassword" className="block text-sm font-semibold text-white/90 mb-2">
                 Confirm Password
               </label>
-              <div className="mt-1">
-                <input
-                  {...register('confirmPassword')}
-                  id="confirmPassword"
-                  type="password"
-                  autoComplete="new-password"
-                  className="input-field"
-                  placeholder="••••••••"
-                />
-                {errors.confirmPassword && (
-                  <p className="mt-1 text-sm text-red-600">{errors.confirmPassword.message}</p>
-                )}
-              </div>
+              <input
+                {...register('confirmPassword')}
+                id="confirmPassword"
+                type="password"
+                autoComplete="new-password"
+                className="input-field"
+                placeholder="••••••••"
+              />
+              {errors.confirmPassword && (
+                <p className="mt-2 text-sm text-red-300 font-medium">{errors.confirmPassword.message}</p>
+              )}
             </div>
 
-            <div>
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full btn-primary"
-              >
-                {isLoading ? 'Creating account...' : 'Create account'}
-              </button>
-            </div>
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full btn-primary mt-8"
+            >
+              {isLoading ? (
+                <span className="flex items-center justify-center">
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Creating account...
+                </span>
+              ) : 'Create Account'}
+            </button>
           </form>
         </div>
       </div>
