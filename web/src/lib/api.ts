@@ -23,15 +23,21 @@ api.interceptors.request.use(
   }
 );
 
-// Response interceptor to handle 401 errors
+// Response interceptor to handle errors
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    // Don't redirect on auth endpoints (login/register) - let the component handle it
+    const isAuthEndpoint = error.config?.url?.includes('/api/auth/');
+    
+    // Only auto-redirect to login if it's a 401 on a protected endpoint
+    // and not during login/register attempts
+    if (error.response?.status === 401 && !isAuthEndpoint) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       window.location.href = '/login';
     }
+    
     return Promise.reject(error);
   }
 );

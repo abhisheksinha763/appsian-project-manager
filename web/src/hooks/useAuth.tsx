@@ -50,20 +50,26 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       toast.success('Login successful!');
       navigate('/');
     } catch (error: any) {
-      console.log('Login error:', error);
-      console.log('Error response:', error.response);
-      console.log('Status code:', error.response?.status);
-      
+      const statusCode = error.response?.status;
       const errorMessage = error.response?.data?.error || 'Login failed';
       
-      // Show "Please create an account first" for 401 unauthorized errors
-      if (error.response?.status === 401) {
-        toast.error('Please create an account first', {
+      // Show "Please register first" for 404 (user not found) or 401 (unauthorized) errors
+      if (statusCode === 404 || statusCode === 401) {
+        toast.error('Please register first. This email is not registered.', {
+          autoClose: 5000,
+          position: 'top-center',
+        });
+      } else if (statusCode === 400) {
+        // Invalid credentials (wrong password)
+        toast.error('Invalid email or password', {
           autoClose: 4000,
           position: 'top-center',
         });
       } else {
-        toast.error(errorMessage);
+        toast.error(errorMessage, {
+          autoClose: 4000,
+          position: 'top-center',
+        });
       }
       throw error;
     }
