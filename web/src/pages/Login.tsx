@@ -51,15 +51,15 @@ export const Login = () => {
             </svg>
           </div>
         </div>
-        <h2 className="text-center text-4xl font-bold text-white drop-shadow-lg">
+        <h2 className="text-center text-4xl font-bold text-gray-900 drop-shadow-md">
           Welcome Back
         </h2>
-        <p className="mt-3 text-center text-lg text-white/90">
+        <p className="mt-3 text-center text-lg text-gray-700">
           Sign in to continue your journey
         </p>
-        <p className="mt-2 text-center text-sm text-white/80">
+        <p className="mt-2 text-center text-sm text-gray-600">
           Don't have an account?{' '}
-          <Link to="/register" className="font-semibold text-white hover:text-accent-200 transition-colors underline decoration-2 underline-offset-4">
+          <Link to="/register" className="font-semibold text-primary-700 hover:text-primary-800 transition-colors underline decoration-2 underline-offset-4">
             Create one now
           </Link>
         </p>
@@ -69,7 +69,7 @@ export const Login = () => {
         <div className="glass-card">
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-white/90 mb-2">
+              <label htmlFor="email" className="block text-sm font-semibold text-gray-800 mb-2">
                 Email address
               </label>
               <input
@@ -86,7 +86,7 @@ export const Login = () => {
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-white/90 mb-2">
+              <label htmlFor="password" className="block text-sm font-semibold text-gray-800 mb-2">
                 Password
               </label>
               <input

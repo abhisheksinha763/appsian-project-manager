@@ -70,8 +70,8 @@ export const Dashboard = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
           <div>
-            <h1 className="text-4xl font-bold text-white drop-shadow-lg">My Projects</h1>
-            <p className="mt-2 text-white/80 text-lg">Manage your projects and tasks</p>
+            <h1 className="text-4xl font-bold text-gray-900 drop-shadow-md">My Projects</h1>
+            <p className="mt-2 text-gray-700 text-lg">Manage your projects and tasks</p>
           </div>
           <button
             onClick={() => setShowForm(!showForm)}
@@ -167,9 +167,9 @@ export const Dashboard = () => {
         {projects && projects.length === 0 ? (
           <div className="glass-card text-center py-16">
             <div className="flex justify-center mb-4">
-              <div className="p-4 bg-white/20 rounded-full">
+              <div className="p-4 bg-primary-500/30 rounded-full">
                 <svg
-                  className="h-16 w-16 text-white"
+                  className="h-16 w-16 text-primary-700"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -183,8 +183,8 @@ export const Dashboard = () => {
                 </svg>
               </div>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">No projects yet</h3>
-            <p className="text-lg text-white/80 mb-6">Get started by creating your first project</p>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">No projects yet</h3>
+            <p className="text-lg text-gray-700 mb-6">Get started by creating your first project</p>
             <button onClick={() => setShowForm(true)} className="btn-primary">
               <span className="flex items-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
