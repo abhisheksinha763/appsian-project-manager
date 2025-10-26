@@ -2,7 +2,7 @@
 
 A production ready full stack project management application with smart task scheduling capabilities. Built with .NET 8, React, TypeScript, and deployed on Render and Vercel.
 
-## 🌐 Live Application
+## 🌐 Live Application (Bonus Task)
 
 - **Frontend**: [https://appsian-project-manager-1s3u.vercel.app](https://appsian-project-manager-1s3u.vercel.app)
 - **Backend API**: [https://project-manager-api-st7h.onrender.com](https://project-manager-api-st7h.onrender.com)
